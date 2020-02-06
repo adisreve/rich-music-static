@@ -164,6 +164,25 @@ async function getCountries() {
   return newObj;
 }
 
+async function getCities(city) {
+  const data = await fetch(`https://api.teleport.org/api/cities/?search=${city}`);
+
+  const response = await data.json();
+  let cities = response._embedded["city:search-results"];
+  const newObj = []
+  cities.map(c => {
+    const {
+      matching_full_name: value, 
+      matching_full_name: label, 
+      ...rest
+    } = c;
+
+    newObj.push({ value, label, ...rest})
+  })
+
+  return newObj;
+}
+
 
 $(document).ready(function($) {
   var Body = $('body');
@@ -205,11 +224,23 @@ setTimeout(function() {
       }
   });
 
-//   jQuery.validator.addMethod('answercheck', function (value, element) {
-//     return this.optional(element) || /^\bcat\b$/.test(value)
-// }, "type the correct answer -_-");
+  var cityInput = document.getElementById("city")
 
-// validate contactForm form
+  autocomplete({
+      input: cityInput,
+      fetch: async function(text,update) {
+        text = text.toLowerCase();
+        const cities = await getCities(text);
+        var suggestions = cities;
+        console.log(suggestions);
+        update(suggestions);
+      },
+      onSelect: function(item) {
+        cityInput.value = item.label.split(',')[0];
+      }
+  })
+
+    // validate form
     $('#modal-form').validate({
         rules: {
             name: {
