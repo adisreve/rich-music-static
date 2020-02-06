@@ -71,10 +71,13 @@ $('.popup-video').magnificPopup({
     upKey: 38,             // key code to navigate to the next section
     downKey: 40,           // key code to navigate to the previous section
     easing: 'linear',      // the easing function for animation
-    scrollTime: 900,       // how long (in ms) the animation takes
+    scrollTime: 850,       // how long (in ms) the animation takes
     activeClass: 'active', // class given to the active nav element
-    onPageChange: null,    // function(pageIndex) that is called when page is changed
-    topOffset: 0           // offste (in px) for fixed top navigation
+    onPageChange: function(pageIndex) {
+        document.body.classList.remove('panel-open');
+        document.querySelector('[data-js="menu-toggle"]').classList.remove('open');
+    },    // function(pageIndex) that is called when page is changed
+    topOffset: -80           // offste (in px) for fixed top navigation
   });
 
   // scrollup bottom to top
@@ -99,23 +102,7 @@ if (document.getElementById('default-select')) {
 
 // resitration_Form
 $(document).ready(function() {
-	$('.popup-with-form').magnificPopup({
-		type: 'inline',
-		preloader: false,
-		focus: '#name',
-
-		// When elemened is focused, some mobile browsers in some cases zoom in
-		// It looks not nice, so we disable it:
-		callbacks: {
-			beforeOpen: function() {
-				if($(window).width() < 700) {
-					this.st.focus = false;
-				} else {
-					this.st.focus = '#name';
-				}
-			}
-		}
-  });
+	
   var wow = new WOW(
     {
       boxClass:     'wow',      // animated element css class (default is wow)
@@ -218,9 +205,9 @@ setTimeout(function() {
       }
   });
 
-  jQuery.validator.addMethod('answercheck', function (value, element) {
-    return this.optional(element) || /^\bcat\b$/.test(value)
-}, "type the correct answer -_-");
+//   jQuery.validator.addMethod('answercheck', function (value, element) {
+//     return this.optional(element) || /^\bcat\b$/.test(value)
+// }, "type the correct answer -_-");
 
 // validate contactForm form
     $('#modal-form').validate({
@@ -249,15 +236,19 @@ setTimeout(function() {
         messages: {
         },
         submitHandler: function(form) {
+            var serializedData = $(form).serialize()
+
             $(form).ajaxSubmit({
                 type:"POST",
-                data: $(form).serialize(),
+                data: serializedData,
                 url:"modalform.php",
                 success: function() {
+                    console.log(form)
                     $('.form-errors')[0].innerHTML = '<h5 style="color:darkgreen;">Successfully sent</h5>';
                     $('#myModal').modal('hide');
                 },
                 error: function() {
+                  console.log($(form).serialize())
                     $('.form-errors')[0].innerHTML = '<h5 style="color:darkred;">There\'s been an error sending</h5>'
                     setTimeout(function() {
                       $('.form-errors')[0].innerHTML = '';
@@ -283,20 +274,45 @@ setTimeout(function() {
       messages: {
       },
       submitHandler: function(form) {
-          $(form).ajaxSubmit({
-              type:"POST",
-              data: $(form).serialize(),
-              url:"subscription.php",
-              success: function() {
-                  $('.error-handle')[0].innerHTML = '<h5 style="color:darkgreen;">Succesfully sent</h5>'
-              },
-              error: function() {
-                $('.error-handle')[0].innerHTML = '<h5 style="color:darkred;">Error sending</h5>';
-                setTimeout(function() {
-                  $('.error-handle')[0].innerHTML = '';
-                }, 2000)
-              }
-          })
+
+        $(form).submit(function(e) {
+
+          e.preventDefault(); // avoid to execute the actual submit of the form.
+      
+          var form = $(this);
+          var url = form.attr('action');
+      
+          $.ajax({
+                 type: "POST",
+                 url: url,
+                 data: form.serialize(), // serializes the form's elements.
+                 success: function(data)
+                 {
+                    console.log(data); // show response from the php script.
+                 },
+                 error: function(err) {
+                   console.log(err);
+                 }
+               });
+          });
+
+          // console.log($(form).serialize());
+          // $(form).ajaxForm({
+          //     type:"POST",
+          //     data: $(form).serialize(),
+          //     url:"subscription.php",
+          //     success: function() {
+          //         console.log($(form).serialize())
+          //         $('.error-handle')[0].innerHTML = '<h5 style="color:darkgreen;">Succesfully sent</h5>'
+          //     },
+          //     error: function() {
+          //       console.log($(form).serialize())
+          //       $('.error-handle')[0].innerHTML = '<h5 style="color:darkred;">Error sending</h5>';
+          //       setTimeout(function() {
+          //         $('.error-handle')[0].innerHTML = '';
+          //       }, 2000)
+          //     }
+          // })
       }
   })
 });

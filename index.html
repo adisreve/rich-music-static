@@ -16,12 +16,70 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/autocomplete.min.css">
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
 <body>
+     <!-- Modal -->
+     <div class="modal" tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+                 <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">¡Suscríbete y entra en el sorteo de Mejor!</h3>
+             </div>  
+             <div class="modal-body contact">
+                 <div class="form-errors"></div>
+                 <div class="touch_form">
+                     <form action="#" id="modal-form" method="POST">
+                         <div class="row">
+                             <div class="col-12">
+                                 <div class="single_input wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                                     <input type="text" placeholder="Name" name="name">
+                                 </div>
+                             </div>
+                             <div class="col-12">
+                                 <div class="single_input wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                                     <input type="email" placeholder="Email" name="email">
+                                 </div>
+                             </div>
+                             <div class="col-12">
+                                 <div class="single_input wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                                     <input type="text" placeholder="Phone" name="phone">
+                                 </div>
+                             </div>
+                             <div class="col-12">
+                                 <div class="single_input wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                                     <input type="text" placeholder="Country" name="country" id="country">
+                                 </div>
+                             </div>
+                             <div class="col-12">
+                                 <div class="single_input wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                                     <input type="text" placeholder="City" name="city" id="city">
+                                 </div>
+                             </div>
+                             <div class="col-12">
+                                 <div class="single_input wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
+ 
+                                     <label for="privacidad">He leído y acepto la <a href="https://richmusicltd.com/policy/RichMusicPrivacyPolicy.pdf" target="_blank">Política de Privacidad</a>  y los <a href="https://richmusicltd.com/policy/RichMusicTermsOfUse.pdf" target="_blank">Términos de Uso.</a></label>
+                                     <input type="checkbox" name="privacidad" id="privacidad" required></input>
+                                 </div>
+                             </div>
+                             <div class="col-12">
+                                 <div class="submit_btn wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
+                                     <button class="boxed-btn5" type="submit">Subscribe</button>
+                                 </div>
+                             </div>
+                         </div>
+                     </form>
+                 </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     <!-- Modal End -->
+
     <header>
         <div class="header-area">
             <div id="sticky-header" class="main-header-area">
@@ -29,7 +87,7 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col-2">
                             <div class="logo-img">
-                                <a href="index.html">
+                                <a href="#" data-scroll-nav="0">
                                     <img src="img/RichMusic_logo.png" alt="Rich Music Logo">
                                 </a>
                             </div>
@@ -41,7 +99,7 @@
                                 <div class="burger-menu">
                                     <div class="menu-toggle" data-js="menu-toggle">
                                         <span class="menu-toggle-grippy">Toggle</span>
-                                        <span class="menu-toggle-label">Menu</span>
+                                        <span class="menu-toggle-label">Menú</span>
                                       </div>
                                 </div>
                             </div>
@@ -60,16 +118,16 @@
         <div class="hidden-panel-content">
           
           <nav class="hidden-panel-nav">
-            <h3>Menu</h3>
+            <h3>Menú</h3>
             <ul>
               <li><a href="#" data-scroll-nav="0" title="Home">Home</a></li>
-              <li><a href="#" data-scroll-nav="1" title="subscribe">Giveaway</a></li>
-              <li><a href="#" data-scroll-nav="2" title="Blog">Subscribe</a></li>
+              <li><a href="#" data-scroll-nav="1" title="subscribe">Detalles Del Sorteo</a></li>
+              <li><a href="#" data-scroll-nav="2" title="Blog">Suscríbete</a></li>
             </ul>
           </nav>
           
           <div class="hidden-panel-text">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque, ipsa.</p>
+            <a href="#" data-scroll-nav="0"><img src="img/RichMusic_logo.png" class="sidebar-logo"  alt=""></a>
           </div>
           
           
@@ -138,17 +196,19 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section_title text-center mb-40">
-                        <span class="wow fadeInUp font-size-20" data-wow-duration="1s" data-wow-delay=".1s" >Giveaway</span>
-                        <h3 class="wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".2s">Lorem ipsum dolor sit amet.</h3>
+                        <span class="wow fadeInUp font-size-20" data-wow-duration="1s" data-wow-delay=".1s" >DETALLES DEL SORTEO</span>
+                        <h3 class="wow fadeInUp" data-wow-duration="1.2s" data-wow-delay=".2s"> ¡Bienvenido al sorteo de Mejor! </h3>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="text-justify wow fadeInLeft" data-wow-duration="1.2s" data-wow-delay=".4s">
-                        <p>1. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci expedita delectus possimus pariatur, culpa beatae, voluptate ipsum, molestias ab tempora commodi eius veritatis ea ipsam voluptates maiores illo. Sed dolore facilis explicabo ullam quod at numquam incidunt iusto corrupti, nulla cum aspernatur suscipit cumque exercitationem ipsum quisquam quibusdam, optio obcaecati vel quam? Dolores in quo modi dicta error asperiores, sit deleniti, fugit optio consectetur suscipit ad harum natus assumenda praesentium. Animi mollitia cupiditate soluta sequi esse doloribus, quia provident doloremque maiores fuga ipsa quae eveniet, ducimus eligendi quam eaque placeat?
-                        <br><br>2. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas repellendus quasi veritatis, suscipit corrupti quam ex fugit ipsa consectetur tenetur nulla dignissimos iusto quibusdam qui, quod nostrum, porro quia 
-                        <br><br>3.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aliquid quae maiores perferendis autem, placeat possimus tempore cumque laboriosam repudiandae quis repellat natus eos temporibus.
+                        <h4>Para este sorteo, vamos a seleccionar 4 ganadores. Todos los ganadores recibirán un set de ropa edición limitada de Dalex que incluirá: </h4> <br>
+                        <p>Una sudadera con capucha de Climaxxx Tour O Una camiseta de Climaxxx Tour y una gorra de Climaxxx Tour.
+                        <br><br>Estaremos aceptando entradas hasta el Jueves 20 de Febrero. Los ganadores serán anunciados el Viernes 21 de Febrero por medio del Instagram de Dalex y serán contactados por correo electrónico para recibir su premio. 
+                        <br><br>¿Tienes alguna pregunta? Puedes contactarnos por nuestro Instagram - <a href="instagram.com/richmusicltd" target="_blank">@richmusticltd</a>.
+                        <br><br> ¡Regístrate ya para entrar!
                         </p>
                     </div>
                 </div>
@@ -216,8 +276,8 @@
                     <div class="subscribe_info mt-0 pt-1 pb-5">
                         <div class="section_title white_text text-center contact contact-subscribe">
                             <div class="error-handle"></div>
-                            <h3 class="wow fadeInUp mb-0 p-0" data-wow-duration="1s" data-wow-delay=".3s">Subscribe</h3>
-                            <p class="wow fadeInUp mb-5" data-wow-duration="1s" data-wow-delay=".4s">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, ipsam.</p>
+                            <h3 class="wow fadeInUp mb-5 p-0" data-wow-duration="1s" data-wow-delay=".3s">  ¡Suscríbete y entra en el sorteo de Mejor!</h3>
+                            <!-- <p class="wow fadeInUp mb-5" data-wow-duration="1s" data-wow-delay=".4s">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, ipsam.</p> -->
                             <div class="touch_form container">
                                 <form action="#" id="form-subscribe">
                                     <div class="row">
@@ -233,7 +293,7 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="submit_btn wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
-                                                <button class="boxed-btn3" type="submit">Subscribe</button>
+                                                <button class="boxed-btn3" type="submit">Suscríbete</button>
                                             </div>
                                         </div>
                                     </div>
@@ -290,56 +350,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Rich 
     </footer>
     <!--/ footer end  -->
 
-    <!-- Modal -->
-    <div class="modal" tabindex="-1" role="dialog" id="myModal">
-       <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">Subscribe Form</h3>
-            </div>  
-            <div class="modal-body contact">
-                <div class="form-errors"></div>
-                <div class="touch_form">
-                    <form action="#" id="modal-form">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="single_input wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                                    <input type="text" placeholder="Name" name="name">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="single_input wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
-                                    <input type="email" placeholder="Email" name="email">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="single_input wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
-                                    <input type="text" placeholder="Phone" name="phone">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="single_input wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
-                                    <input type="text" placeholder="Country" name="country" id="country">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="single_input wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
-                                    <input type="text" placeholder="City" name="city" id="city">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="submit_btn wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
-                                    <button class="boxed-btn5" type="submit">Subscribe</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <!-- Modal End -->
+   
 
     <div class="overlay-loading">
         <div class="overlay-logo">
